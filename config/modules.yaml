@@ -1,0 +1,3 @@
+xia_module:
+  package: xia-module
+  class: Module
