@@ -3,3 +3,4 @@ repositories:
 
 packages:
   xia-module:
+  xia-module-gcp-bigquery:

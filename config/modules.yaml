@@ -1,3 +1,6 @@
 xia_module:
   package: xia-module
   class: Module
+gcp_module_dataset:
+  package: xia-module-gcp-bigquery
+  class: Dataset
