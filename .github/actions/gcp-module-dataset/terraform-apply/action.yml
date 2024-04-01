@@ -28,7 +28,7 @@ runs:
       run: |
         terraform -chdir=iac/environments/base init \
         -backend-config="bucket=${{ inputs.cosmos_name }}" \
-        -backend-config="prefix=${{ inputs.realm_name }}/_/${{ inputs.foundation_name }}/${{ inputs.app_name }}/base/terraform/state"
+        -backend-config="prefix=${{ inputs.realm_name }}/_/${{ inputs.foundation_name }}/${{ inputs.app_name }}/${{ inputs.env_name }}/terraform/state"
 
     - name: Terraform plan
       shell: bash
