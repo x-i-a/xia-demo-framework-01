@@ -27,7 +27,7 @@ jobs:
 
     - id: terraform-apply
       name: Apply Terraform
-      uses: ./.github/actions/gcp-module-dataset/terraform-apply
+      uses: ./.github/actions/gcp-module-dataset/gcs-terraform-apply
       with:
         cosmos_name: ${{ vars.cosmos_name }}
         realm_name: ${{ vars.realm_name }}
