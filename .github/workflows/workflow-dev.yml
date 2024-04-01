@@ -25,6 +25,17 @@ jobs:
         workload_identity_provider: ${{ vars.SECRET_WIP_NAME }}
         service_account: ${{ vars.PROVIDER_SA_EMAIL }}
 
+    - id: terraform-apply
+      name: Apply Terraform
+      uses: ./.github/actions/gcp-module-dataset/terraform-apply
+      with:
+        cosmos_name: ${{ vars.cosmos_name }}
+        realm_name: ${{ vars.realm_name }}
+        foundation_name: ${{ vars.foundation_name }}
+        app_name: ${{ vars.app_name }}
+        project_id: ${{ vars.project_id }}
+        env_name: ${{ vars.env_name }}
+
   local-test:
     if: false
     environment: dev

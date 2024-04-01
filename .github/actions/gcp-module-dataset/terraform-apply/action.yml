@@ -1,0 +1,34 @@
+name: 'Apply Terraform'
+description: 'Apply Terraform Using Google OIDC'
+inputs:
+  cosmos_name:
+    description: 'Cosmos name'
+    required: true
+  realm_name:
+    description: 'Realm name'
+    required: true
+  foundation_name:
+    description: 'Foundation name'
+    required: true
+  app_name:
+    description: 'Application name'
+    required: true
+  env_name:
+    description: 'Environment Name'
+    required: true
+  project_id:
+    description: 'Project ID'
+    required: true
+
+runs:
+  using: 'composite'
+  steps:
+    - name: Install Terraform
+      uses: hashicorp/setup-terraform@v3
+
+    - name: Print
+      shell: bash
+      run: |
+        echo "realm_name: ${{ inputs.realm_name }}"
+        echo "foundation_name: ${{ inputs.foundation_name }}"
+        echo "app_name: ${{ inputs.app_name }}"
