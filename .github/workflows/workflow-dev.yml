@@ -33,7 +33,6 @@ jobs:
         realm_name: ${{ vars.realm_name }}
         foundation_name: ${{ vars.foundation_name }}
         app_name: ${{ vars.app_name }}
-        project_id: ${{ vars.project_id }}
         env_name: ${{ vars.env_name }}
 
   local-test:

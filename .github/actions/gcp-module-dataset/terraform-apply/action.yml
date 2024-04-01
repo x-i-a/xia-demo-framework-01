@@ -16,9 +16,6 @@ inputs:
   env_name:
     description: 'Environment Name'
     required: true
-  project_id:
-    description: 'Project ID'
-    required: true
 
 runs:
   using: 'composite'
@@ -30,5 +27,5 @@ runs:
       shell: bash
       run: |
         terraform -chdir=iac/environments/base init \
-        -backend-config="bucket={cosmos_name}" \
+        -backend-config="bucket=${{ inputs.cosmos_name }}" \
         -backend-config="prefix=${{ inputs.realm_name }}/_/${{ inputs.foundation_name }}/${{ inputs.app_name }}/${{ inputs.env_name }}/terraform/state"
