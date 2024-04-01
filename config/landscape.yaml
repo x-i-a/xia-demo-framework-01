@@ -3,11 +3,11 @@ environments:
   dev:
     match_branch: refs/heads/main
     stages:
+      - deploy
       - local-test
   sit:
     match_branch: refs/tags/.*
     stages:
-      - deploy
       - remote-test
   prd:
     match_branch: refs/tags/.*
