@@ -26,9 +26,9 @@ runs:
     - name: Install Terraform
       uses: hashicorp/setup-terraform@v3
 
-    - name: Print
+    - name: Terraform init
       shell: bash
       run: |
-        echo "realm_name: ${{ inputs.realm_name }}"
-        echo "foundation_name: ${{ inputs.foundation_name }}"
-        echo "app_name: ${{ inputs.app_name }}"
+        terraform -chdir=iac/environments/base init \
+        -backend-config="bucket={cosmos_name}" \
+        -backend-config="prefix=${{ inputs.realm_name }}/_/${{ inputs.foundation_name }}/${{ inputs.app_name }}/${{ inputs.env_name }}/terraform/state"
