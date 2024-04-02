@@ -11,6 +11,8 @@ def main():
     parser_create = subparsers.add_parser('init-module', help='Initialization of a new module')
     parser_create.add_argument('-n', '--module_name', type=str, help='Create files relates to module')
 
+    parser_deploy = subparsers.add_parser('prepare', help='Prepare Modules for deploy')
+
     # Parse the arguments
     args = parser.parse_args()
 
@@ -19,6 +21,8 @@ def main():
     if args.command == 'init-module':
         application.prepare()
         application.create(args.module_name)
+    elif args.command == "prepare":
+        application.prepare()
     else:
         # If no command is provided, show help
         parser.print_help()

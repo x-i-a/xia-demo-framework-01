@@ -3,14 +3,14 @@ environments:
   dev:
     match_branch: refs/heads/main
     stages:
-      - deploy
-      - local-test
+    - deploy
+    - local-test
   sit:
     match_branch: refs/tags/.*
     stages:
-      - remote-test
+    - remote-test
   prd:
     match_branch: refs/tags/.*
     match_event: release
     stages:
-      - publish
+    - publish
