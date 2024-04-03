@@ -2,4 +2,4 @@ dataset_id: sample_dataset
 description: Sample Dataset
 friendly_name: Sample Dataset
 location: eu
-deletion_protection: false
+delete_contents_on_destroy: false
