@@ -26,11 +26,11 @@ runs:
     - name: Terraform init
       shell: bash
       run: |
-        terraform -chdir=iac/environments/base init \
+        terraform -chdir=iac/environments/${{ inputs.env_name }} init \
         -backend-config="bucket=${{ inputs.cosmos_name }}" \
         -backend-config="prefix=${{ inputs.realm_name }}/_/${{ inputs.foundation_name }}/${{ inputs.app_name }}/${{ inputs.env_name }}/terraform/state"
 
     - name: Terraform plan
       shell: bash
       run: |
-        terraform -chdir=iac/environments/base apply -auto-approve
+        terraform -chdir=iac/environments/${{ inputs.env_name }} apply -auto-approve
