@@ -1,7 +1,7 @@
-xia_module:
+xia-module:
   package: xia-module
   class: Module
-gcp_module_dataset:
+gcp-module-dataset:
   package: xia-module-gcp-bigquery
   class: Dataset
   events:
