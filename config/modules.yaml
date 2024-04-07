@@ -1,3 +1,8 @@
 xia-module:
   package: xia-module
   class: Module
+gcp-module-dataset:
+  package: xia-module-gcp-bigquery
+  class: Dataset
+  events:
+    deploy:
