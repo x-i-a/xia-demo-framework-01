@@ -4,3 +4,4 @@ repositories:
 packages:
   xia-module:
   xia-module-terraform-gcs:
+  xia-module-gcp-bigquery:

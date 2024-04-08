@@ -6,3 +6,8 @@ module-state-gcs:
   class: GcsState
   events:
     deploy:
+gcp-module-dataset:
+  package: xia-module-gcp-bigquery
+  class: Dataset
+  events:
+    deploy:
