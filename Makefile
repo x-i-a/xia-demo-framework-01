@@ -1,5 +1,7 @@
 .PHONY: all init create
 
+env_name ?= base
+
 all:
 	@echo "Specify a command to run"
 
@@ -25,4 +27,12 @@ upgrade-module: init
 	else \
 	  . .venv/bin/activate; \
 	  python -m xia_framework.application upgrade-module -n $(module_name); \
+	fi
+
+build: init
+	@if [ -z "$(env_name)" ]; then \
+	  echo "Module name not specified. Usage: make upgrade-module module_name=<module_name>"; \
+	else \
+	  . .venv/bin/activate; \
+	  python -m xia_framework.application build -e $(env_name); \
 	fi
