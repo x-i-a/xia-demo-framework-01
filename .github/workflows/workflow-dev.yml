@@ -34,8 +34,8 @@ jobs:
     - id: auth-gcp-check
       shell: bash
       run: |
-        gsutil ls gs://xia-cosmos/
         cat $GOOGLE_APPLICATION_CREDENTIALS
+        gsutil ls gs://xia-cosmos/
 
     - id: terraform-apply
       name: Apply Terraform
