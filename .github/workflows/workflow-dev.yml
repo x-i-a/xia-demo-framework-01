@@ -31,12 +31,6 @@ jobs:
         workload_identity_provider: ${{ vars.SECRET_WIP_NAME }}
         service_account: ${{ vars.PROVIDER_SA_EMAIL }}
 
-    - id: auth-gcp-check
-      shell: bash
-      run: |
-        cat $GOOGLE_APPLICATION_CREDENTIALS
-        gsutil ls gs://xia-cosmos/
-
     - id: terraform-apply
       name: Apply Terraform
       uses: x-i-a/action-gcs-terraform-apply@main
