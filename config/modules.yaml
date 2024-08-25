@@ -1,6 +1,11 @@
 xia-module:
   package: xia-module
   class: Module
+module-state-gcs:
+  package: xia-module-terraform-gcs
+  class: ApplicationGcsBackend
+  events:
+    deploy:
 gcp-module-dataset:
   package: xia-module-gcp-bigquery
   class: Dataset
