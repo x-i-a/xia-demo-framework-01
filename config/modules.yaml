@@ -1,7 +1,7 @@
 xia-module:
   package: xia-module
   class: Module
-module-state-gcs:
+module-application-backend-gcs:
   package: xia-module-terraform-gcs
   class: ApplicationGcsBackend
   events:
