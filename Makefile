@@ -27,7 +27,7 @@ plan: init
 	if [ -z "$(env_name)" ]; then \
 	    echo "Environment name not specified. Usage: make plan env_name=<env_name>"; \
 	else \
-	    python -m xia_framework.application plan --env_name $(app_name); \
+	    python -m xia_framework.application plan -e $(env_name); \
     fi
 
 apply: init
@@ -35,6 +35,6 @@ apply: init
 	if [ -z "$(env_name)" ]; then \
 	    echo "Environment name not specified. Usage: make plan env_name=<env_name>"; \
 	else \
-	    python -m xia_framework.application apply --env_name $(app_name); \
+	    python -m xia_framework.application apply -e $(env_name); \
     fi
 
