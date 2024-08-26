@@ -10,7 +10,8 @@ init:
 	until [ -f .venv/bin/python3 ]; do sleep 1; done; \
 	until [ -f .venv/bin/activate ]; do sleep 1; done;
 	. .venv/bin/activate; \
-	pip install PyYAML xia-framework keyring setuptools wheel jinja2; \
+    pip install git+https://github.com/x-i-a/xia-framework.git; \
+	pip install PyYAML keyring setuptools wheel jinja2; \
     pip install keyrings.google-artifactregistry-auth; \
 
 init-module: init
@@ -21,18 +22,19 @@ init-module: init
 	  python -m xia_framework.application init-module -n $(module_name); \
 	fi
 
-upgrade-module: init
-	@if [ -z "$(module_name)" ]; then \
-	  echo "Module name not specified. Usage: make upgrade-module module_name=<module_name>"; \
+plan: init
+	@. .venv/bin/activate; \
+	if [ -z "$(env_name)" ]; then \
+	    echo "Environment name not specified. Usage: make plan env_name=<env_name>"; \
 	else \
-	  . .venv/bin/activate; \
-	  python -m xia_framework.application upgrade-module -n $(module_name); \
-	fi
+	    python -m xia_framework.application plan --env_name $(app_name); \
+    fi
 
-build: init
-	@if [ -z "$(env_name)" ]; then \
-	  echo "Module name not specified. Usage: make upgrade-module module_name=<module_name>"; \
+apply: init
+	@. .venv/bin/activate; \
+	if [ -z "$(env_name)" ]; then \
+	    echo "Environment name not specified. Usage: make plan env_name=<env_name>"; \
 	else \
-	  . .venv/bin/activate; \
-	  python -m xia_framework.application build -e $(env_name); \
-	fi
+	    python -m xia_framework.application apply --env_name $(app_name); \
+    fi
+
