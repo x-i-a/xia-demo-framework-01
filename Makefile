@@ -1,7 +1,5 @@
 .PHONY: all init create
 
-env_name ?= base
-
 all:
 	@echo "Specify a command to run"
 
@@ -10,8 +8,7 @@ init:
 	until [ -f .venv/bin/python3 ]; do sleep 1; done; \
 	until [ -f .venv/bin/activate ]; do sleep 1; done;
 	. .venv/bin/activate; \
-    pip install git+https://github.com/x-i-a/xia-framework.git; \
-	pip install PyYAML keyring setuptools wheel jinja2; \
+	pip install PyYAML xia-framework keyring setuptools wheel jinja2; \
     pip install keyrings.google-artifactregistry-auth; \
 
 init-module: init
