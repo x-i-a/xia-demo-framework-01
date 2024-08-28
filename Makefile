@@ -1,4 +1,4 @@
-.PHONY: all init create
+.PHONY: all init plan apply destroy init-module
 
 all:
 	@echo "Specify a command to run"
@@ -11,14 +11,6 @@ init:
     pip install git+https://github.com/x-i-a/xia-framework.git; \
 	pip install PyYAML keyring setuptools wheel; \
     pip install keyrings.google-artifactregistry-auth; \
-
-init-module: init
-	@if [ -z "$(module_name)" ]; then \
-	  echo "Module name not specified. Usage: make init-module module_name=<module_name>"; \
-	else \
-	  . .venv/bin/activate; \
-	  python -m xia_framework.application init-module -n $(module_name); \
-	fi
 
 plan: init
 	@. .venv/bin/activate; \
@@ -35,4 +27,17 @@ apply: init
 	else \
 	    python -m xia_framework.application apply -e $(env_name); \
     fi
+
+destroy: init
+	@. .venv/bin/activate; \
+	python -m xia_framework.application destroy
+
+init-module: init
+	@. .venv/bin/activate; \
+	if [ -z "$(module_uri)" ] ; then \
+		echo "Module URI not specified. Usage: make init-module module_uri=<package_name>@<version>/<module_name>"; \
+	else \
+		python -m xia_framework.application init-module -n $(module_uri); \
+	fi
+
 
