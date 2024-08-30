@@ -21,7 +21,7 @@ jobs:
       name: Prepare modules
       run: |
         pip install xia-framework xia-module
-        python -m xia_framework.application prepare -e ${{ vars.env_name }}
+        python -m xia_framework.application plan -e ${{ vars.env_name }}
 
     - id: auth-gcp-oidc
       name: Authenticate to Google Cloud
