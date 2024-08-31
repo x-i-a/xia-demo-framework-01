@@ -1,7 +1,12 @@
 repositories:
   default:
+  develop:
+    git_https: github.com/x-i-a
 
 packages:
   xia-module:
+    repository: develop
   xia-module-terraform-gcs:
+    repository: develop
   xia-module-gcp-bigquery:
+    repository: develop
